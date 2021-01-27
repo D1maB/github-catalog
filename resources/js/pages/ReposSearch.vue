@@ -1,18 +1,18 @@
 <template>
     <div>
         <SearchForm></SearchForm>
-        <ReposList></ReposList>
+        <ReposSearchResult></ReposSearchResult>
     </div>
 </template>
 
 <script>
     import SearchForm from '../components/SearchForm'
-    import ReposList from '../components/ReposList'
+    import ReposSearchResult from '../components/ReposSearchResult'
 
     export default {
         components : {
             SearchForm,
-            ReposList,
+            ReposSearchResult,
         },
     }
 </script>

@@ -16,7 +16,7 @@ class CreateReposTable extends Migration
         Schema::create('repos', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('html_url');
+            $table->string('html_url')->unique();
             $table->text('description');
             $table->string('owner_login');
             $table->integer('stargazers_count');

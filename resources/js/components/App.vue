@@ -8,13 +8,13 @@
 <script>
     import Nav from './Nav'
     import SearchForm from './SearchForm'
-    import ReposList from './ReposList'
+    import ReposSearchResult from './ReposSearchResult'
 
     export default {
         components : {
             Nav,
             SearchForm,
-            ReposList,
+            ReposSearchResult,
         },
     }
 </script>

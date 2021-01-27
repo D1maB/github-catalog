@@ -1,3 +1,5 @@
+import GithubSearchAPI from "./github-search-api";
+
 require('./bootstrap');
 
 import Vue from 'vue'
@@ -26,6 +28,17 @@ const router = new VueRouter({
 });
 
 //Vue.component('app', require('./components/App.vue').default);
+
+import FavoritesAPI from './favorites-api';
+
+async function t(){
+
+    const response = await FavoritesAPI.all();
+    console.log(response);
+    console.log(123);
+}
+
+t();
 
 const app = new Vue({
     el: '#app',

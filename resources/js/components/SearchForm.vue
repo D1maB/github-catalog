@@ -20,14 +20,20 @@
         },
         methods: {
             async getRepos(){
-                try{
-                    let response = await GithubSearchAPI.searchRepos(this.search_input, {per_page: 20});
-                    let data = response.data.items;
 
-                    EventBus.$emit('reposFetched', data);
+                let query = this.search_input;
+                query = query.trim();
 
-                } catch (e) {
-                    alert('An error occurred..')
+                if(query.length){
+                    try{
+                        const response = await GithubSearchAPI.searchRepos(query, {per_page: 20});
+                        const data = response.data.items;
+
+                        EventBus.$emit('reposFetched', data);
+
+                    } catch (e) {
+                        alert('An error occurred..')
+                    }
                 }
             }
         }
