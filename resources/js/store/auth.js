@@ -23,7 +23,7 @@ const module = {
         },
     },
     actions: {
-        async login({commit, dispatch, resolve, reject}, {email, password}) {
+        async login({commit, dispatch}, {email, password}) {
             try{
                 commit('AUTH_REQUEST')
                 const response = await AuthAPI.login(email, password);
