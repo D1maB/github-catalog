@@ -1,13 +1,15 @@
 <template>
     <div>
-        Repos favorites page
+        <ReposListFavorites></ReposListFavorites>
     </div>
 </template>
 
 <script>
-    export default {
-        mounted() {
+    import ReposListFavorites from '../components/ReposListFavorites'
 
+    export default {
+        components: {
+            ReposListFavorites
         }
     }
 </script>

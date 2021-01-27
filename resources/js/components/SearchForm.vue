@@ -8,7 +8,7 @@
 </template>
 
 <script>
-    import GithubSearchAPI from '../github-search-api'
+    import GithubSearchAPI from '../api/github-search-api'
     import EventBus from '../event-bus';
 
     export default {
@@ -33,6 +33,7 @@
 
                     } catch (e) {
                         alert('An error occurred..')
+                        console.log(e);
                     }
                 }
             }

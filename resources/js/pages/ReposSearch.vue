@@ -6,6 +6,7 @@
 </template>
 
 <script>
+
     import SearchForm from '../components/SearchForm'
     import ReposSearchResult from '../components/ReposSearchResult'
 

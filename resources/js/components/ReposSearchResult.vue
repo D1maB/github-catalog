@@ -7,7 +7,7 @@
                 <p class="card-text">
                     {{ repo.description }} <br> owner: {{ repo.owner.login }} <br> stars: {{ repo.stargazers_count }}
                 </p>
-                <a @click="addToFavotites(repo.id)" href="#" class="btn btn-success card-link">Add to favorites</a>
+                <div @click="addToFavorites(repo.id)" class="btn btn-success card-link">Add to favorites</div>
             </div>
         </div>
     </div>
@@ -15,6 +15,7 @@
 
 <script>
     import EventBus from '../event-bus';
+    import FavoritesAPI from "../api/favorites-api";
 
     export default {
         name: 'ReposSearchResult',
@@ -36,10 +37,29 @@
                 this.repos = data;
             },
 
-            addToFavorites(id){
+            async addToFavorites(id){
                 let repo = this.repos.filter(item => item.id === id);
 
                 if(repo){
+                    repo = repo[0];
+
+                    try{
+                        const response = await FavoritesAPI.add({
+                            name: repo.name,
+                            html_url: repo.html_url,
+                            description: repo.description,
+                            owner_login: repo.owner.login,
+                            stargazers_count: repo.stargazers_count,
+                        });
+                        alert(response.data.message);
+                    } catch(e){
+                        if(e.response.data.message){
+                            alert(e.response.data.message);
+                        } else{
+                            alert('Error: Cannot add to favorites')
+                        }
+                    }
+
                     console.log(repo);
                 } else{
                     alert('Error: Cannot get the repo.');
