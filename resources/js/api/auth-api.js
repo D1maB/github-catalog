@@ -1,10 +1,5 @@
-
-// @todo
-import axios from 'axios';
-
-const http = axios.create({
-    baseURL: 'http://192.168.99.100:5000/api/auth',
-});
+import HttpFactory from './http-factory';
+const http = HttpFactory.create('auth');
 
 export default class AuthAPI{
 
@@ -20,9 +15,5 @@ export default class AuthAPI{
             email,
             password
         });
-    }
-
-    static async logout(email, password){
-        return await http.post('/logout');
     }
 }

@@ -1,12 +1,9 @@
-import axios from 'axios'
-
-const http = axios.create({
-    baseURL: 'https://api.github.com',
-});
+import HttpFactory from './http-factory';
+const http = HttpFactory.create('github');
 
 export default class GithubSearchAPI{
 
-    static async searchRepos(query, params = {}){
+	static async searchRepos(query, params = {}){
         return await http.get('/search/repositories', { params: {
             q: query,
             ...params

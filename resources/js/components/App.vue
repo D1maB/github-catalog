@@ -40,6 +40,8 @@
 <script>
 
     import store from '../store'
+	import UserAPI from "../api/user-api";
+	
     export default {
 
         computed: {
@@ -49,10 +51,15 @@
         },
         methods: {
 
-            logout() {
-                store.dispatch('auth/logout').then(resp => {
-                    this.$router.push({name: 'login'})
-                })
+            async logout() {
+				try{
+					const response = await UserAPI.logout();
+					localStorage.removeItem('user-token');
+					this.$router.push({name: 'login'})					
+				} catch(e){
+					alert('cannot log out');
+				}
+				
             }
         },
 

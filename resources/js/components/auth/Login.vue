@@ -41,13 +41,16 @@ export default {
     methods: {
         async login() {
             const { email, password } = this;
+			console.log('login');
             const response = await store.dispatch("auth/login", { email, password });
-
+			//console.log(response);
+			
             if(response.status != 200){
                 alert('Cannot log in')
             } else{
                 this.$router.push({name: 'home'});
             }
+			
         }
     }
 }

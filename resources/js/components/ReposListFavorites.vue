@@ -41,7 +41,7 @@
                     this.updateList(data.data);
 
                 } catch (e) {
-                    alert('An error occurred..')
+                    alert('An error occurred..');					
                 }
             },
 

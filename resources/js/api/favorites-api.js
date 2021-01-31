@@ -1,11 +1,5 @@
-import axios from 'axios';
-
-const token = localStorage.getItem('user-token') || '';
-
-const http = axios.create({
-    baseURL: 'http://192.168.99.100:5000/api',
-    headers: {'Authorization': 'Bearer ' + token}
-});
+import HttpFactory from './http-factory';
+const http = HttpFactory.create();
 
 export default class FavoritesAPI{
 

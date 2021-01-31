@@ -32,7 +32,7 @@ const module = {
                 const token = response.data.access_token;
                 localStorage.setItem('user-token', token);
 
-                axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+                //axios.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
                 commit('AUTH_SUCCESS', token)
                 return response;
@@ -43,14 +43,6 @@ const module = {
             }
 
         },
-
-        logout: ({commit, dispatch}) => {
-            return new Promise((resolve, reject) => {
-                commit('AUTH_LOGOUT')
-                localStorage.removeItem('user-token')
-                resolve()
-            })
-        }
     },
     getters: {
         isAuthenticated: state => !!state.token,
